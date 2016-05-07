@@ -1,0 +1,157 @@
+﻿html { display: block;font-size:100%;}
+
+table 
+{
+   border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+    height: 0px;
+}
+body
+{   width :962px;
+    margin:0 auto;
+    font:15px "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
+    color:#333;
+   background:url()repeat-x
+}
+.showimg{ width:100%; }
+.tableleft
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 1px;
+    width:100%;
+    height:566px;
+    vertical-align:top;
+    text-align:center;
+    font-size:16px;
+}
+ .tableright
+{
+    width:100%;
+    height:1000px;
+    vertical-align:top;
+    text-align:left;
+    font-size:16px;
+    }
+
+.xm-carousel-list li{float:left;width:234px;margin-right:14px}
+.xm-carousel-col-4-list li{width:296px}
+.xm-carousel-col-5-list li{float:left;width:234px}
+.td, th {display: table-cell;vertical-align:inherit;}
+.title{ text-align:left; font-size:18px; }
+ h2 span{margin-left:10px;color:#ff6700}
+.td-left{height:600px;font-size:15px;}
+.td-right{height:20px;font-size:15px;}
+.a-list{font-size:17px;}
+.tr-buttom
+{
+    font-size:15px;
+    height:20px;
+    color:#757575; 
+    font-weight: bold;
+    line-height: 22px; 
+    text-align:center;
+}
+a:link { color:Black;text-decoration:none; } 
+a:visited { color:Black; text-decoration:none; } 
+a:hover { color:Orange;text-decoration:none; } 
+a:active { color:Orange; text-decoration:none; }
+button:hover{color:Orange;}
+button:active{color:Orange; background-color:Orange;}
+
+.list-top
+{
+    width:80%;
+    height:30px;
+    border: 1px solid #ff0000;
+    border-color:Gray;
+    font-size:16px;
+   
+ }
+.sep{margin:0 0.5em;color:#424242}
+.search-text
+{top:50px;right:200px;padding:0 10px;
+ border-color:White;font-size:14px;line-height:48px;
+}
+.table-top{top:70px;height:100px;width:100%;border:2px;border-collapse:collapse;border-spacing:0;}
+ .footer-links{padding:40px 0}
+ .footer-links .col-links{float:left;width:165px;height:112px;margin:0}
+ .footer-links .col-links dt{margin:-1px 0 26px;font-size:14px;line-height:1.25;color:#424242}
+ .footer-links .col-links dd{margin:10px 0 0;font-size:12px}
+ .footer-links .col-links a{color:#757575}
+ .footer-links .col-links a:hover{color:#ff6700}
+ .footer-links .col-contact{float:right;width:242px;height:112px;border-left:1px solid #e0e0e0;text-align:center;color:#616161}
+ .footer-links .col-contact p{margin:0 0 16px;font-size:12px}
+ .footer-links .col-contact .phone{margin:0 0 5px;font-size:22px;line-height:1;color:#ff6700} 
+.thumb img{width:100px;height:100px; border-color:White;}  
+.thumb img:hover{border-color:Orange;}
+ .thumb{margin-right:12px;vertical-align:middle; color:White;} 
+ .thumb a{color:Black; text-align:center;font:15px/1.2 "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;}
+ .thumb a:hover{ color:Orange;}
+ .thunb img{width:600px;height:600px;border-color:White;}
+ .thunb a:hover{ color:Orange;}
+h3{ text-align:center}
+p{ text-align:center}
+#list   *
+        {
+            margin: 0;
+            padding: 0;
+        }
+     .button
+{
+    padding:5px; 
+    border: 1px solid #dedede;
+   -moz-border-radius: 15px;      /* Gecko browsers */
+   -webkit-border-radius: 15px;   /* Webkit browsers */
+   border-radius:15px;            /* W3C sy*/  
+   background-color:transparent;
+   font-family:微软雅黑;
+   color:black;
+   font-size:12pt;
+}
+        .button:hover 
+        {
+            border-color:orange;
+        }
+#list 
+{
+    
+}
+ .auto-style16
+        {
+            font-family: 隶书;
+            font-size: 36pt;
+            font-weight: 400;
+            color:white;
+            text-align: center;
+            top: 70px;
+            height: 95px;
+        }
+ .lvz {
+	font-size: 14px;
+	color: #8AB600;
+	color: #8AB600;
+	line-height: 24px;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.hz {
+	font-size: 16px;
+	color:black;
+	color: black;
+	line-height: 24px;
+	font-weight: normal;
+	font-family: "黑体";
+}
+#notice #new 
+{
+    height:30px;
+}
+#Label1 
+{
+    left:10px;
+}

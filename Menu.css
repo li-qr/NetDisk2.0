@@ -1,0 +1,44 @@
+﻿/*通用设置*/
+*{margin:0;padding:0;}
+html,body{height:750px;
+text-align:center;
+}
+a:link,a:visited{ text-decoration:none;}
+
+/*菜单个性设置*/
+.box{width:204px;height:100%;margin:0 auto;height:100%;background:url(../images/menuboxbg.gif) repeat-y left top;}
+.box ul{list-style:none;text-align:left;}
+.box h2{width:204px;margin:0 auto;height:33px;background:#FFF url(../images/导航栏.png) no-repeat left top;text-indent:-9999px; color:black;}
+
+/*一级菜单*/
+.menu li.level1 a{display:block;line-height:31px;height:31px;padding-left:50px; font-size:12px;color:#fff;background:url(../images/menubg.gif) no-repeat left top;}
+/*一级菜单两态样式,供JS调用*/
+.menu li.level1 a.hove{background-position:left -31px;}
+.menu li.level1 a.cur{background-position:left -62px;}
+
+/*二级菜单*/
+.menu li ul{padding-left:10px;overflow:hidden;}
+.menu li ul.level2{width:180px;display:none;}
+.menu li ul.level2 li{height:26px;line-height:26px;}
+.menu li ul.level2 li a{display:block;height:26px;line-height:26px;background:#E7E3E7 url(../images/t1.gif) no-repeat 30px center;padding-left:50px;color:#42556B;border-top:1px #B8C2CB solid;overflow:hidden;}
+/*二级菜单两态样式,供JS调用*/
+.menu li ul.level2 li a.hove1{background:#F6F6F6 url(../images/t2.gif) no-repeat 30px center;}
+h2{width:193px;
+margin:0 auto;height:33px;background:#FFF url(../images/导航栏.png) no-repeat left top;text-indent:-9999px;color:black;
+}
+  .table-top
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 2px;
+    top:70px;
+    height:157px;
+    width:100%;
+    border-collapse:collapse;
+    border-spacing:0;
+    background:url(images/页头.jpg)no-repeat;
+}
+  .label1 
+{
+    padding-left:8px;
+}
