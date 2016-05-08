@@ -7,15 +7,17 @@ using System.Web.UI.WebControls;
 using Aspose.Cells;
 using Newtonsoft.Json.Linq;
 using RDotNet;
+using System.Collections;
 public partial class table_view_source : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-       if(Request.Form["table"]!=null)
+       
+      /* if(Request.Form["table"]!=null)
         {
             if (!String.IsNullOrEmpty(Request.Form["table"].ToString()))
             {
-                Workbook wb = new Workbook(MapPath("/146.xls"));
+                Workbook wb = new Workbook(MapPath("/14.xls"));
                 Worksheet ws = wb.Worksheets[0];
                 JObject jo = new JObject();
                 int whith = ws.Cells.MaxColumn + 1;
@@ -72,18 +74,33 @@ public partial class table_view_source : System.Web.UI.Page
             }
 
         }
-        else if (Request.Form["num"] != null)
+       else if (Request.Form["num"] != null)
         {
+            
+        
             string worklist = Request.Form["num"].ToString();
-            string[] aa = worklist.Split(',');
-            double sum = 0;
-            for (int i = 0; i < aa.Length; i++)
+            string[] aa = worklist.Split(',');*/
+        {
+            string rHome = @"C:\Program Files (x86)\R-3.2.4revised";
+            string rPath = System.IO.Path.Combine(rHome, @"bin\i386");
+            REngine.SetEnvironmentVariables(rPath, rHome);
+            REngine engine = REngine.GetInstance();
+            ArrayList List = new ArrayList();
+            for (int i = 0; i < 10;i++)//aa.Length; i++)
             {
-                sum += System.Convert.ToDouble(aa[i]);
+              List.Add(32.23);//( System.Convert.ToDouble(aa[i]));
             }
-            for (int i = 0; i < 10000000;i++ )
-                Response.Clear();
-            Response.Write(sum);
+         //   Int32[] values = (Int32[])List.ToArray(typeof(Int32));
+            NumericVector group1 = engine.CreateNumericVector((double[])List.ToArray(typeof(double)));//(new double[] { 30.02, 29.99, 30.11, 29.97, 30.01, 29.99 });
+        engine.SetSymbol("group1", group1);
+        double[] mean = engine.Evaluate("mean(group1)").AsNumeric().ToArray();
+        double[] var = engine.Evaluate("var(group1)").AsNumeric().ToArray();
+        //double[] sd = engine.Evaluate("sd(group1)").AsNumeric().ToArray();
+          //  string result = "平均值："+mean[0].ToString()+"<br/>方差："+var[0].ToString()+"<br/>标准差："+sd[0].ToString();
+            // NumericVector group1 = engine.CreateNumericVector();
+           // for (int i = 0; i < 10000000;i++ )
+             Response.Clear();
+            Response.Write("ddd");
             Response.End();
         }
        

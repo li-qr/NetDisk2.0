@@ -1,59 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.IO;
 
-public partial class _Default : System.Web.UI.Page
-{  
-    protected void Page_Load(object sender, EventArgs e)
+namespace WebApplicationRdn
+{
+    public partial class RenginePage : System.Web.UI.Page
     {
-         if (File.Exists(Server.MapPath("~/treexml.xml")))
-        { }
-        else { Response.Redirect("main.aspx?wrong=缺少管理员配置文件！！！！！！！！！", true); }
-
-         if (Session["user"] == null)
-         {             
-             us.Text = "游客";
-             us.NavigateUrl = "main.aspx";
-         }
-         else{             
-             us.Text = Session["user"].ToString();
-             us.NavigateUrl = "#";
-            dz.Text = "注销";
-            dz.NavigateUrl = "logout.aspx";            
-        }
-        if (Request.QueryString["type"] != null)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            string type = Request.QueryString["type"];
-            mainContent.Src = "grid-view.aspx?type=" + type;
-
+            Rdn.Init();
         }
-    }
 
-    protected void Menu1_MenuItemClick(object sender, MenuEventArgs e)
-    {
-        if (Menu1.SelectedItem.Depth != 0)
+        protected void btSubmitStatement_Click(object sender, EventArgs e)
         {
-            if (Menu1.SelectedItem.Depth == 1)
+            
+            var statements = this.tbStatement.Text;
+            var lines = statements.Replace(Environment.NewLine, "\n").Split('\n');
+            foreach (var line in lines)
             {
-                mainContent.Src = "grid-view.aspx?type=" + Menu1.SelectedItem.Text;                
-
+                if (line.Trim() != "")
+                {
+                    string result = Rdn.Evaluate(line);
+                    this.tbResult.Text = string.Concat(this.tbResult.Text, Environment.NewLine, result);
+                }
             }
-            else
-            {
-                mainContent.Src = "grid-view.aspx?type="+ Menu1.SelectedItem.Text + " " + Menu1.SelectedItem.Parent.Text;            
-
-            }
+           
+            this.tbStatement.Text = string.Empty;
         }
 
-    }
+        protected void btSubmitScript_Click(object sender, EventArgs e)
+        {
+            using (var content = new StreamReader(fuRscript.FileContent))
+            {
+                var txt = content.ReadToEnd();
+                var rfn = txt.Replace(@"\", "/");
+                string result = Rdn.Evaluate("source(" + rfn + ")");
+                this.tbResult.Text = string.Concat(this.tbResult.Text, Environment.NewLine, result);
+            }
 
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        mainContent.Src = "grid-view.aspx?type="+TextBox1.Text;
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+           // this.tbResult.Text = string.Empty;
+        }
+
+        protected void btnSetCStack_Click(object sender, EventArgs e)
+        {
+            Rdn.SetCStackLimit();
+        }
     }
-    
 }
