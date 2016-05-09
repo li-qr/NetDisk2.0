@@ -77,7 +77,7 @@
               // $(".spinner").appendTo($("#show"));                
                 var pojs = [];
                 var indx = $(this).prevAll().length;
-                $("[id$='." + indx + "']").css("background-color", "#808080");
+                $("[id$='." + indx + "']").css("background-color", "#6fe0ff");
                 $("[id$='." + indx + "']").each(function () {
                     var text = $(this).text();
                     if (text != null && !isNaN(text) && text != "")
@@ -89,7 +89,7 @@
                     { num: pojs.toString() },
                     function (data) {
                         $(".spinner").hide();
-                        $("#show").text(data);
+                        $("#show").html(data);
                     });                              
             });
             $("#rtable").on("mouseleave", "td", function () {
@@ -105,7 +105,7 @@
     </script>  
     <style type="text/css">
         tr:hover,tr.alt:hover {
-        background-color:#808080;
+        background-color:#6fe0ff;
         }
         table {
         font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -134,7 +134,7 @@ font-size:1em;
       border:1px solid #000000;
      color:#000000;
     width:200px;
-    height:50px;
+    height:60px;
     position:absolute;
     background-color:#fff;  
     display:none;      
@@ -272,7 +272,6 @@ box-shadow: 10px 10px 5px #888888;
   </div>
 </div>
     <input id="Submit1" type="submit" value="getcell"  />
-    <input id="Submit2" type="submit" value="getnum"  />
     <table id="rtable">
         </table>    
 </body>
