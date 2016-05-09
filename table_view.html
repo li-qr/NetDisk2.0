@@ -13,7 +13,7 @@
                 $(".spinner").css("left", "");
                 $(".spinner").css("top", "");
                 $(".spinner").show();
-                $.post("table_view_source.aspx",
+                $.post("table_view_source.ashx",
                     { table: "23e" },
                 function (data) {
                     var jsob = $.parseJSON(data);
@@ -85,7 +85,7 @@
                         pojs.push(text);
                     }
                 });
-                $.post("table_view_source.aspx",
+                $.post("table_view_source.ashx",
                     { num: pojs.toString() },
                     function (data) {
                         $(".spinner").hide();
