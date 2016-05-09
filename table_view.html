@@ -46,45 +46,34 @@
                     $(".spinner").hide();
                 });
             });
-           /* $("#Submit2").click(function () {
-                var pojs = {};
-                $("table tr").each(function(){ 
-                    //获取tr 的Id 
-                    var trId=$(this).attr("id"); 
-                    //遍历td                     
-                    var temp = [];                    
-                    $(this).find("td").each(function () {
-                        var text = $(this).text();
-                        if (text != null && !isNaN(text)&&text!="")
-                        {
-                            temp.push(text);
-                        }
-                    });
-                    pojs[trId] = temp;
-                });
-            });*/
+           
             $("#rtable").on("mouseenter", "td", function () {
                 var x = $(this).position().left;
                 var y = $(this).position().top;
                 $("#show").css("left",x);
                 $("#show").css("top",y-55);                
-               // $("#show").text("");
+              
                 $("#show").show();
                 $(".spinner").css("position", "absolute");
                 $(".spinner").css("left", $("#show").css("left"));
                 $(".spinner").css("top",$("#show").css("top"));
                 $(".spinner").show();
-              // $(".spinner").appendTo($("#show"));                
+                       
                 var pojs = [];
-                var indx = $(this).prevAll().length;
-                $("[id$='." + indx + "']").css("background-color", "#6fe0ff");
-                $("[id$='." + indx + "']").each(function () {
-                    var text = $(this).text();
-                    if (text != null && !isNaN(text) && text != "")
-                    {
-                        pojs.push(text);
+                //var indx = $(this).prevAll().length;
+                $("#rtable tr td").each(function () {
+                    if ($(this).position().left == x) {
+                        $(this).css("background-color", "#6fe0ff");
+                        var text = $(this).text();
+                        if (text != null && !isNaN(text) && text != "") {
+                            pojs.push(text);
+                        }
                     }
                 });
+               // $("[id$='." + indx + "']").css("background-color", "#6fe0ff");
+              //  $("[id$='." + indx + "']").each(function () {
+                   
+              //  });
                 $.post("table_view_source.ashx",
                     { num: pojs.toString() },
                     function (data) {
@@ -93,8 +82,14 @@
                     });                              
             });
             $("#rtable").on("mouseleave", "td", function () {
-                var indx = $(this).prevAll().length;
-                $("[id$='." + indx + "']").css("background-color", "");
+                //var indx = $(this).prevAll().length;
+                // $("[id$='." + indx + "']").css("background-color", "");
+                $("#rtable tr td").each(function () {
+                    // if ($(this).position().left == x) {
+                    {
+                        $(this).css("background-color", "");                        
+                    }
+                });
                 $(".spinner").hide();
                 $("#show").empty();
                 $("#show").hide();

@@ -16,7 +16,7 @@ public class table_view_source : IHttpHandler {
         {
             if (!String.IsNullOrEmpty(context.Request.Form["table"].ToString()))
             {
-                Workbook wb = new Workbook(HttpContext.Current.Server.MapPath("/146.xls"));
+                Workbook wb = new Workbook(HttpContext.Current.Server.MapPath("/143.xlsx"));
                 Worksheet ws = wb.Worksheets[0];
                 JObject jo = new JObject();
                 int whith = ws.Cells.MaxColumn + 1;
@@ -56,10 +56,10 @@ public class table_view_source : IHttpHandler {
                         }
                         else
                         {
-                            te.Add(new JProperty("value", ""));
-                            string na = i.ToString() + "." + j;
-                            te.Add(new JProperty("ismarged", 0));
-                            jo1.Add(na, te);
+                           //// te.Add(new JProperty("value", ""));
+                           // string na = i.ToString() + "." + j;
+                           // te.Add(new JProperty("ismarged", 0));
+                            //jo1.Add(na, te);
                         }
                     }
                 string jj = jo.ToString();
@@ -101,9 +101,10 @@ public class table_view_source : IHttpHandler {
             double[] mean = engine.Evaluate("mean(group1)").AsNumeric().ToArray();
             double[] var = engine.Evaluate("var(group1)").AsNumeric().ToArray();
             double[] sd = engine.Evaluate("sd(group1)").AsNumeric().ToArray();
+            
             string result = "平均值：" + mean[0].ToString() + "<br />方差：" + var[0].ToString() + "<br />标准差：" + sd[0].ToString();
             // NumericVector group1 = engine.CreateNumericVector();
-            // for (int i = 0; i < 10000000;i++ )
+          //   for (int i = 0; i < 10000000;i++ )
             context.Response.Clear();
             context.Response.Write(result);
             context.Response.End();
