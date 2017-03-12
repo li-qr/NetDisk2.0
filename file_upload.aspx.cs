@@ -28,7 +28,7 @@ public partial class file_upload : System.Web.UI.Page
     {        
         MongoServer server = MongoServer.Create(ConfigurationManager.AppSettings["dbserver"]);
         MongoDatabase mydb = server.GetDatabase("centerdb");
-       MongoCollection mycoll = mydb.GetCollection("fileinfo");       
+        MongoCollection mycoll = mydb.GetCollection("fileinfo");       
         if (FileUpload1.HasFile)
         {
             

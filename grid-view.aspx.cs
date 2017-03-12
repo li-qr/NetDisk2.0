@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -99,16 +100,13 @@ public partial class grid_view : System.Web.UI.Page
             System.IO.FileInfo file = new System.IO.FileInfo(MapPath("/temp/") + gvr.Cells[1].Text);
             if (file.Extension == ".doc" || file.Extension == ".docx" || file.Extension == ".DOC" || file.Extension == ".DOCX")//|| file.Extension == "xls" || file.Extension == "xlsx")
             {
-               
                 Aspose.Words.Document awd = new Aspose.Words.Document(MapPath("/temp/") + gvr.Cells[1].Text);
                 awd.Save(MapPath("/temp/" + manfilename + ".pdf"), Aspose.Words.SaveFormat.Pdf);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>window.open('/web/viewer.html?file=/temp/" + manfilename + ".pdf'" + ",'_blank')</script>");
             }
             if (file.Extension == ".xls" || file.Extension == ".xlsx" || file.Extension == ".XLS" || file.Extension == ".XLSX")
             {
-                
                 Workbook wb = new Workbook(MapPath("/temp/") + gvr.Cells[1].Text);
-               
                 wb.Save(MapPath("/temp/" + manfilename + ".html"), Aspose.Cells.SaveFormat.Html);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "<script>window.open('/temp/" + manfilename + ".html'" + ",'_blank')</script>");
             }
